@@ -7,7 +7,7 @@ pair<int,int> selection_sort_return(int N, int K, vector<int> A){
     int tmp = 0;
     int start = 0, end = 0;
     for(int last = N ; last >= 2 ; last--){
-        int maxj = -1;
+        int maxj = -1;//
         int i = 0;
         for(int j = 1; j <= last ; j++){
             if(maxj <= A[j]){
