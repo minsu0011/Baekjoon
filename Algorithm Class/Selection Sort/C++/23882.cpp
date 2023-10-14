@@ -1,17 +1,24 @@
-/* https://www.acmicpc.net/problem/23881 */
+/* https://www.acmicpc.net/problem/23882 */
 #include<iostream>
 #include<vector>
 #include<algorithm>
 using namespace std;
-pair<int,int> selection_sort_return(int N, int K, vector<int> A){
+vector<int> selection_sort_return(int N, int K, vector<int> A){
     int cnt = 0;
     int tmp = 0;
+    vector<int> arr;
+    arr.push_back(0);
+    arr.push_back(-1);
     int start = 0, end = 0;
     for(int last = N ; last >= 2 ; last--){
         int maxj = -1;
         int i = 0;
-        
-        make_heap(A.begin()+1, A.end());
+        for(int j = 1; j <= last ; j++){
+            if(maxj <= A[j]){
+                maxj = A[j];
+                i = j;
+            }
+        }
         if(last!=i){
             start = A[last];
             end = A[i];
@@ -21,10 +28,10 @@ pair<int,int> selection_sort_return(int N, int K, vector<int> A){
             cnt ++;
         }
         if(cnt == K){
-            return make_pair(start, end);
+            return A;
         }
     }
-    return make_pair(-1,-1);
+    return arr;
 }
 int main(){
     ios_base::sync_with_stdio(false);
@@ -42,11 +49,13 @@ int main(){
         cin >> x;
         A.push_back(x);
     }
-    pair<int, int> result;
+    vector<int> result;
     result = selection_sort_return(N,K,A);
-    if(result.first == -1 && result.second == -1) cout << "-1";
+    if(result[1] == -1 ) cout << "-1";
     else{
-        cout << result.first << " " << result.second << '\n';
+        for(int n = 1 ; n <= N ; n++){
+            cout << result[n] << ' ';
+        }
     }
     return 0;
 }
