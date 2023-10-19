@@ -1,4 +1,4 @@
-/* https://www.acmicpc.net/problem/24173 */
+/* https://www.acmicpc.net/problem/24174 */
 #include<iostream>
 #include<vector>
 #include<algorithm>
@@ -72,6 +72,7 @@ void BuildMinHeap(){
 
 void HeapSort(void){
     BuildMinHeap();
+    if(cnt == K) return;
     int l = N;
     for(int i = l ; i >= 2 ; i--){
         int t = A[1];
@@ -106,8 +107,7 @@ int main(){
     HeapSort();
     if(cnt < K) cout << "-1";
     else{
-        if(swapa < swapb) cout << swapa << " " << swapb << '\n';
-        else cout << swapb << " " << swapa << '\n';     
+        for(int i = 1 ;i <= N ;i ++) cout << A[i] << " ";   
     } 
     return 0;
 }
