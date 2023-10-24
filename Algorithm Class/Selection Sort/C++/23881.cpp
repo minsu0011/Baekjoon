@@ -1,4 +1,3 @@
-/* https://www.acmicpc.net/problem/23881 */
 #include<iostream>
 #include<vector>
 #include<algorithm>
@@ -10,8 +9,12 @@ pair<int,int> selection_sort_return(int N, int K, vector<int> A){
     for(int last = N ; last >= 2 ; last--){
         int maxj = -1;
         int i = 0;
-        
-        make_heap(A.begin()+1, A.end());
+        for(int j = 1; j <= last ; j++){
+            if(maxj <= A[j]){
+                maxj = A[j];
+                i = j;
+            }
+        }
         if(last!=i){
             start = A[last];
             end = A[i];
