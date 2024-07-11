@@ -1,3 +1,4 @@
+//https://www.acmicpc.net/problem/2753
 #include<stdio.h>
 #include<iostream>
 #include<vector>
@@ -10,8 +11,9 @@ int main() {
 	ios_base::sync_with_stdio(false);
 	cin.tie(NULL);
 	cout.tie(NULL);
-	int a, b;
-	cin >> a >> b;
-	cout << a + b;
+	int year;
+	cin >> year;
+	if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0)cout << "1";
+	else cout << "0";
 	return 0;
 }
