@@ -23,3 +23,5 @@ g++ -std=c++17 path/to/solution.cpp -o solution
 각 파일을 독립적으로 실행합니다. Java는 선언된 클래스 이름에 맞춰 컴파일하며, 입력 형식은 해당 문제와 소스를 참고하세요.
 
 [출처 및 이용 조건](ATTRIBUTION.md)
+
+[전체 문서 안내](docs/README.md)
